@@ -10,7 +10,7 @@ const Portfolio = () => {
   useEffect(() => {
     const getMyProjects = async () => {
       const { data } = await axios.get(
-        "https://backend-for-portfolio-git-main-mathewalexkeralas-projects.vercel.app/api/v1/project/getall",
+        "https://backend-for-portfolio-peach.vercel.app/api/v1/project/getall",
         { withCredentials: true }
       );
       setProjects(data.projects);

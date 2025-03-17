@@ -19,7 +19,7 @@ const ProjectView = () => {
   useEffect(() => {
     const getProject = async () => {
       await axios
-        .get(`https://backend-for-portfolio-git-main-mathewalexkeralas-projects.vercel.app/api/v1/project/get/${id}`, {
+        .get(`https://backend-for-portfolio-peach.vercel.app/api/v1/project/get/${id}`, {
           withCredentials: true,
         })
         .then((res) => {

@@ -8,7 +8,7 @@ const MyApps = () => {
     console.log('hi react here')
     const getMyApps = async () => {
       const { data } = await axios.get(
-        "https://backend-for-portfolio-git-main-mathewalexkeralas-projects.vercel.app/api/v1/softwareapplication/getall",
+        "https://backend-for-portfolio-peach.vercel.app/api/v1/softwareapplication/getall",
         { withCredentials: true }
       );
       console.log('software application',data)
