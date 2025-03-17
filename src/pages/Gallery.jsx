@@ -10,7 +10,7 @@ const Gallery = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/project/get-all",
+          "https://backend-for-portfolio-git-main-mathewalexkeralas-projects.vercel.app//api/v1/project/get-all",
           { withCredentials: true }
         );
         console.log(response)
