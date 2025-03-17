@@ -19,7 +19,7 @@ const Hero = () => {
   useEffect(() => {
     const getMyProfile = async () => {
       const { data } = await axios.get(
-        "https://backend-for-portfolio-git-main-mathewalexkeralas-projects.vercel.app//api/v1/user/portfolio/me",
+        "https://backend-for-portfolio-git-main-mathewalexkeralas-projects.vercel.app/api/v1/user/portfolio/me",
         { withCredentials: true }
       );
       console.log(data);
