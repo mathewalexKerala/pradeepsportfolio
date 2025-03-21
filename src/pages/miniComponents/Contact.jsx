@@ -15,7 +15,7 @@ const Contact = () => {
     setLoading(true);
     await axios
       .post(
-        "https://backend-for-portfolio-peach.vercel.app/api/v1/message/send",
+        "https://backend-for-portfolio-jauk.onrender.com/api/v1/message/send",
         { senderName, subject, message },
         {
           withCredentials: true,

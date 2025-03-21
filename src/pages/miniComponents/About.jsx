@@ -7,7 +7,7 @@ const [imageUrl, setImageUrl] = useState('');
   useEffect(() => {
     const getMyProfile = async () => {
       const { data } = await axios.get(
-        "https://backend-for-portfolio-peach.vercel.app/api/v1/user/portfolio/me",
+        "https://backend-for-portfolio-jauk.onrender.com/api/v1/user/portfolio/me",
         { withCredentials: true }
       );
       console.log(data)
