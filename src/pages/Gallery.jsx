@@ -10,7 +10,7 @@ const Gallery = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(
-          "https://backend-for-portfolio-peach.vercel.app/api/v1/project/get-all",
+          "hhttps://backend-for-portfolio-jauk.onrender.com",
           { withCredentials: true }
         );
         console.log(response)
