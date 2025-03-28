@@ -10,10 +10,10 @@ const Gallery = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(
-          "https://backend-for-portfolio-jauk.onrender.com",
+          "https://backend-for-portfolio-jauk.onrender.com/api/v1/project/get-all",
           { withCredentials: true }
         );
-        console.log(response)
+        console.log(response,'response')
         setProjects(response.data.projects);
       } catch (error) {
         toast.error(error.response?.data?.message || "Failed to fetch projects");
@@ -35,7 +35,7 @@ const Gallery = () => {
                   project.projectBanner?.url || "/avatarHolder.jpg"
                 }
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-full h-48 object-cover"
               />
              
             </div>
