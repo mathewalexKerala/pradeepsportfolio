@@ -3,9 +3,7 @@ import axios from "axios";
 const About = () => {
   const [aboutData, setAboutData] = useState({});
 const [imageUrl, setImageUrl] = useState('');
- 
-
-
+  
   useEffect(() => {
     const getMyProfile = async () => {
       const { data } = await axios.get(
@@ -14,12 +12,11 @@ const [imageUrl, setImageUrl] = useState('');
       );
       
       setImageUrl(data.user.avatar.url)
-      localStorage.setItem('avatarUrl',JSON.stringify(data.user.avatar.url))
       setAboutData(data.user);
     };
     getMyProfile();
   }, []);
-
+ 
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
       <div className="relative">
@@ -44,7 +41,7 @@ const [imageUrl, setImageUrl] = useState('');
         <div className="grid md:grid-cols-2 my-8 sm:my-20 gap-14">
           <div className="flex justify-center items-center">
             <img
-              src={JSON.parse(localStorage.getItem('avatarUrl'))} decoding="async"
+              src={imageUrl} decoding="async"
               alt="avatar"
               className="bg-white p-2 sm:p-4 rotate-[25deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px]"
             />
