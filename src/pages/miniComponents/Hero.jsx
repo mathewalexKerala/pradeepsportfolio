@@ -22,8 +22,7 @@ const Hero = () => {
         "https://backend-for-portfolio-jauk.onrender.com/api/v1/user/portfolio/me",
         { withCredentials: true }
       );
-      console.log(data);
-      console.log("success");
+   
       setUser(data.user);
     };
     getMyProfile();

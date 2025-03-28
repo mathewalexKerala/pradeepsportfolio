@@ -5,13 +5,13 @@ import React, { useEffect, useState } from "react";
 const MyApps = () => {
   const [apps, setApps] = useState([]);
   useEffect(() => {
-    console.log('hi react here')
+
     const getMyApps = async () => {
       const { data } = await axios.get(
         "https://backend-for-portfolio-jauk.onrender.com/api/v1/softwareapplication/getall",
         { withCredentials: true }
       );
-      console.log('software application',data)
+
       setApps(data.softwareApplications);
     };
     getMyApps();

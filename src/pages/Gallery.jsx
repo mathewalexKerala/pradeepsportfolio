@@ -13,7 +13,7 @@ const Gallery = () => {
           "https://backend-for-portfolio-jauk.onrender.com/api/v1/softwareapplication/getall",
           { withCredentials: true }
         );
-        console.log(response.data.softwareApplications,'response')
+
         setProjects(response.data.softwareApplications);
       } catch (error) {
         toast.error(error.response?.data?.message || "Failed to fetch projects");
