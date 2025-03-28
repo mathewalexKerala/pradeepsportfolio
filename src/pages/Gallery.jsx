@@ -10,7 +10,7 @@ const Gallery = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get(
-          "https://backend-for-portfolio-jauk.onrender.com/api/v1/project/get-all",
+          "https://backend-for-portfolio-jauk.onrender.com/api/v1/softwareapplication/getall",
           { withCredentials: true }
         );
         console.log(response,'response')
