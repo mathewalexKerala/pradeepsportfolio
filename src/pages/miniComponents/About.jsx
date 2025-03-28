@@ -50,16 +50,13 @@ const [imageUrl, setImageUrl] = useState('');
             {aboutData.aboutMe}
             </p>
             <p>
-              I have interests not only in technology but also in movies,
-              series, video games, and cooking. I excel in meeting deadlines for
-              my work.
+            A senior PMP certified supply chain professional with 30+ years of experience across various industries.
+            
             </p>
           </div>
         </div>
         <p className="tracking-[1px] text-xl">
-          My dedication and perseverance in timely delivery of work are integral
-          to me. I maintain the courage to face any challenges for extended
-          periods.
+        Executed Major Telecom projects while holding senior positions with Top Telecom MNCs.
         </p>
       </div>
     </div>
