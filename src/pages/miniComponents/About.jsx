@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 const About = () => {
   const [aboutData, setAboutData] = useState({});
-const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   
   useEffect(() => {
     const getMyProfile = async () => {
-      const { data } = await axios.get(
-        "https://backend-for-portfolio-jauk.onrender.com/api/v1/user/portfolio/me",
-        { withCredentials: true }
-      );
-      console.log(data)
-      setImageUrl(data.user.avatar.url)
-      setAboutData(data.user);
+      try {
+        const { data } = await axios.get(
+          "https://backend-for-portfolio-jauk.onrender.com/api/v1/user/portfolio/me",
+          { withCredentials: true }
+        );
+        // Add optimization parameters if your backend supports them
+        const optimizedUrl = data.user.avatar.url.includes('?') 
+          ? `${data.user.avatar.url}&w=800&q=80`
+          : `${data.user.avatar.url}?w=800&q=80`;
+        setImageUrl(optimizedUrl);
+        setAboutData(data.user);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
     };
     getMyProfile();
   }, []);
+
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
       <div className="relative">
@@ -39,24 +48,29 @@ const [imageUrl, setImageUrl] = useState('');
       <div>
         <div className="grid md:grid-cols-2 my-8 sm:my-20 gap-14">
           <div className="flex justify-center items-center">
-            <img
-              src={imageUrl}
-              alt="avatar"
-              className="bg-white p-2 sm:p-4 rotate-[25deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px]"
-            />
+            {imageUrl && (
+              <img
+                src={imageUrl}
+                alt="avatar"
+                className="bg-white p-2 sm:p-4 rotate-[25deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px]"
+                loading="lazy"
+                width={450}
+                height={450}
+                decoding="async"
+              />
+            )}
           </div>
           <div className="flex justify-center flex-col tracking-[1px] text-xl gap-5">
             <p>
-            {aboutData.aboutMe}
+              {aboutData.aboutMe}
             </p>
             <p>
-            A senior PMP certified supply chain professional with 30+ years of experience across various industries.
-            
+              A senior PMP certified supply chain professional with 30+ years of experience across various industries.
             </p>
           </div>
         </div>
         <p className="tracking-[1px] text-xl">
-        Executed Major Telecom projects while holding senior positions with Top Telecom MNCs.
+          Executed Major Telecom projects while holding senior positions with Top Telecom MNCs.
         </p>
       </div>
     </div>
