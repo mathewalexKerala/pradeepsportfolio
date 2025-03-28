@@ -3,7 +3,7 @@ import axios from "axios";
 const About = () => {
   const [aboutData, setAboutData] = useState({});
 const [imageUrl, setImageUrl] = useState('');
-  if(!imageUrl){
+ 
 
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const [imageUrl, setImageUrl] = useState('');
     };
     getMyProfile();
   }, []);
-}
+
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
       <div className="relative">
