@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 const About = () => {
   const [aboutData, setAboutData] = useState({});
 const [imageUrl, setImageUrl] = useState('');
-  
+  if(!imageUrl){
+
+
   useEffect(() => {
     const getMyProfile = async () => {
       const { data } = await axios.get(
         "https://backend-for-portfolio-jauk.onrender.com/api/v1/user/portfolio/me",
         { withCredentials: true }
       );
-      console.log(data)
+      
       setImageUrl(data.user.avatar.url)
       setAboutData(data.user);
     };
     getMyProfile();
   }, []);
+}
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
       <div className="relative">
@@ -40,7 +43,7 @@ const [imageUrl, setImageUrl] = useState('');
         <div className="grid md:grid-cols-2 my-8 sm:my-20 gap-14">
           <div className="flex justify-center items-center">
             <img
-              src={imageUrl}
+              src={imageUrl} decoding="async"
               alt="avatar"
               className="bg-white p-2 sm:p-4 rotate-[25deg] h-[240px] sm:h-[340px] md:h-[350px] lg:h-[450px]"
             />
